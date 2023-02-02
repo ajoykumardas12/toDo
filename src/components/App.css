@@ -1,0 +1,96 @@
+.App {
+  text-align: center;
+}
+body {
+  min-height: 70vh;
+  padding: 1rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: hsl(198, 1%, 29%);
+  background: #B99B6B;
+  font-family: 'Fira Sans', sans-serif;
+  text-align: center;
+  font-size: 130%;
+}
+
+.container {
+  height: auto;
+  min-height: 70vh;
+  max-width: 70vw;
+  min-width: 30rem;
+  background: #f6f7f8;
+  background-size: 1.5rem 1.5rem;
+  border-radius: 20px;
+  box-shadow: 4px 3px 7px 2px #0f0f0f40;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.heading h1 {
+  padding: 0.2rem 1.2rem;
+  font-size: 1.5rem;
+}
+
+.form input {
+  box-sizing: border-box;
+  background-color: transparent;
+  padding: 0.7rem;
+  border: solid 3px transparent;
+  border-bottom: groove 3px #0f0f0f40;
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 1rem;
+  color: hsla(260, 2%, 25%, 0.7);
+  width: 70%;
+  margin-bottom: 1.2rem;
+}
+
+button {
+  margin-left: 0.5rem;
+  padding: 0;
+  border: none;
+  font-family: 'Fira Sans', sans-serif;
+  text-decoration: none;
+  padding-bottom: 0.15rem;
+  border-radius: 5px;
+  background-color: #0f0f0f40;
+}
+button:hover{
+  padding-bottom: 0px;
+}
+button span {
+  background: #f1f5f8;
+  display: block;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: 2px solid hsl(198, 1%, 29%);
+}
+button span:hover{
+  background: #0f0f0f40;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+
+.item-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 2rem;
+}
+ion-icon {
+  text-align: center;
+  padding: 5 0;
+}
+.trash-icon {
+  margin: auto 10px;
+}
+.trash-icon:hover {
+  color: #0f0f0f40;
+}
