@@ -7,6 +7,7 @@ function TodoItems(props) {
       {props.toDoItems.map((item) => ( 
         <ToDoItem 
           key = {item.id}
+          id = {item.id}
           item = {item.item}
           checked = {item.checked}
           onChecked = {props.onChecked}

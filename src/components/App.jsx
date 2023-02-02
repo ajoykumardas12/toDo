@@ -36,10 +36,10 @@ function App() {
     });
   }
 
-  function handleDelete(id) {
+  function handleDelete(deleteItemId) {
     setTodoList((prevValue) => {
-      return prevValue.filter((item, index) => {
-        return index !== id;
+      return prevValue.filter((item) => {
+        return item.id !== deleteItemId;
       });
     });
   }
