@@ -9,7 +9,7 @@ function TodoItems(props) {
           key = {item.id}
           id = {item.id}
           item = {item.item}
-          checked = {item.checked}
+          isDone = {item.isDone}
           onChecked = {props.onChecked}
           onDelete = {props.onDelete}
         >

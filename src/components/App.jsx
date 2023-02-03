@@ -7,22 +7,22 @@ function App() {
   const [todoList, setTodoList] = useState([
     {
       id: 1,
-      checked: true,
+      isDone: true,
       item: "Do Homework"
     },
     {
       id: 2,
-      checked: false,
+      isDone: false,
       item: "Eat Dinner"
     },
     {
       id: 3,
-      checked: false,
+      isDone: false,
       item: "Brush"
     },
     {
       id: 4,
-      checked: true,
+      isDone: true,
       item: "Go to bed"
     }
   ]);
@@ -32,7 +32,7 @@ function App() {
 
     const newId = todoList[todoList.length - 1].id + 1;
     setTodoList((prevValue) => {
-      return [...prevValue, {id: newId, checked: false, item: newTodo}];
+      return [...prevValue, {id: newId, isDone: false, item: newTodo}];
     });
   }
 
@@ -44,11 +44,10 @@ function App() {
     });
   }
 
-
-  function handleChecked(event) {
-    // setDone((prevValue) => {
-      // return !prevValue;
-    // });
+  function handleIsDone(id) {
+    console.log("called");
+    const list = todoList.map((item) => item.id === id ? {...item, isDone: !item.isDone} : item );
+    setTodoList(list);
   }
 
   return (
@@ -59,7 +58,7 @@ function App() {
       <AddArea onAdd={handleAdd} />
       <TodoItems
         toDoItems = {todoList}
-        onChecked = {handleChecked}
+        onChecked = {handleIsDone}
         onDelete = {handleDelete}
       ></TodoItems>
     </div>

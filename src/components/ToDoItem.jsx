@@ -3,16 +3,15 @@ import React from "react";
 function TodoItem(props) {
   return (
     <div className="item-container">
-        <div className={props.checked ? "line-through" : null}>
-
-            <input 
+        <div className={props.isDone ? "line-through" : null}>
+          <input 
             type="checkbox" 
             name="" 
             id="" 
-            checked={props.checked}
-            onClick={props.onChecked}
-            />
-            {props.item}
+            defaultChecked={props.isDone}
+            onChange={() => {props.onChecked(props.id)}}
+          />
+          {props.item}
         </div>
         <div
           className="trash-icon"
