@@ -45,7 +45,6 @@ function App() {
   }
 
   function handleIsDone(id) {
-    console.log("called");
     const list = todoList.map((item) => item.id === id ? {...item, isDone: !item.isDone} : item );
     setTodoList(list);
   }
