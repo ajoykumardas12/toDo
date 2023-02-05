@@ -3,10 +3,7 @@ import React from "react";
 function TodoItem(props) {
   return (
     <div className="item-container">
-        <div 
-        // className={props.isDone ? "line-through" : null}
-        id="checklist"
-        >
+        <div id="checklist">
           <input 
             type="checkbox" 
             name="" 
@@ -16,7 +13,6 @@ function TodoItem(props) {
             onChange={() => {props.onChecked(props.id)}}
           />
           <label htmlFor={props.id}>{props.item}</label>
-          {/* {props.item} */}
         </div>
         <div
           className="trash-icon"

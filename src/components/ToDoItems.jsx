@@ -1,7 +1,7 @@
 import React from "react";
 import ToDoItem from './ToDoItem';
 
-function TodoItems(props) {
+function ToDoItems(props) {
   return (
     <div className="items-container">
       {props.toDoItems.map((item) => ( 
@@ -21,4 +21,4 @@ function TodoItems(props) {
   );
 }
 
-export default TodoItems;
+export default ToDoItems;

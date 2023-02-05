@@ -1,52 +1,35 @@
 import './App.css';
 import React, { useState } from "react";
 import AddArea from "./AddArea";
-import TodoItems from "./ToDoItems";
+import ToDoItems from "./ToDoItems";
+import EmptyList from "./EmptyList";
 
 function App() {
-  const [todoList, setTodoList] = useState([
-    {
-      id: 1,
-      isDone: true,
-      item: "Do Homework"
-    },
-    {
-      id: 2,
-      isDone: false,
-      item: "Eat Dinner"
-    },
-    {
-      id: 3,
-      isDone: false,
-      item: "Brush"
-    },
-    {
-      id: 4,
-      isDone: true,
-      item: "Go to bed"
-    }
-  ]);
+  const items = JSON.parse(localStorage.getItem('todoItems'));
+  const [todoList, setTodoList] = useState(items);
+
+  function setItemsAndSetLocalStorage(newList){
+    setTodoList(newList);
+    localStorage.setItem('todoItems', JSON.stringify(newList));
+  }
 
   function handleAdd(newTodo) {
     if(!newTodo) return;
 
-    const newId = todoList[todoList.length - 1].id + 1;
-    setTodoList((prevValue) => {
-      return [...prevValue, {id: newId, isDone: false, item: newTodo}];
-    });
+    const newId = (todoList && todoList.length) ? todoList[todoList.length - 1].id + 1 : 1;
+    const newToDoList = todoList ? [...todoList, {id: newId, isDone: false, item: newTodo}] : [{id: newId, isDone: false, item: newTodo}];
+
+    setItemsAndSetLocalStorage(newToDoList);
   }
 
   function handleDelete(deleteItemId) {
-    setTodoList((prevValue) => {
-      return prevValue.filter((item) => {
-        return item.id !== deleteItemId;
-      });
-    });
+    const newToDoList = todoList.filter((item) => item.id !== deleteItemId)
+    setItemsAndSetLocalStorage(newToDoList);
   }
 
   function handleIsDone(id) {
-    const list = todoList.map((item) => item.id === id ? {...item, isDone: !item.isDone} : item );
-    setTodoList(list);
+    const newToDoList = todoList.map((item) => item.id === id ? {...item, isDone: !item.isDone} : item );
+    setItemsAndSetLocalStorage(newToDoList);
   }
 
   return (
@@ -55,11 +38,14 @@ function App() {
         <h1>To-Do List</h1>
       </div>
       <AddArea onAdd={handleAdd} />
-      <TodoItems
+      {(todoList && todoList.length) ?       
+      <ToDoItems
         toDoItems = {todoList}
         onChecked = {handleIsDone}
         onDelete = {handleDelete}
-      ></TodoItems>
+      ></ToDoItems> : 
+      <EmptyList/>}
+
     </div>
   );
 }
