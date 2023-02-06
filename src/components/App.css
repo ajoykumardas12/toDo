@@ -30,7 +30,7 @@ body {
   min-width: 30rem;
   background: var(--white);
   background-size: 1.5rem 1.5rem;
-  border-radius: 20px;
+  border-radius: 1.2rem;
   box-shadow: 4px 3px 7px 2px #0f0f0f40;
   padding: 1rem;
   box-sizing: border-box;
@@ -43,7 +43,7 @@ body {
 }
 .heading h1 {
   padding: 0.2rem 1.2rem;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 }
 
 .form input {
@@ -53,7 +53,7 @@ body {
   border: solid 3px transparent;
   border-bottom: groove 3px #0f0f0f40;
   font-family: 'Fira Sans', sans-serif;
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: hsla(260, 2%, 25%, 0.7);
   width: 70%;
   margin-bottom: 1.2rem;
@@ -64,6 +64,7 @@ button {
   padding: 0;
   border: none;
   font-family: 'Fira Sans', sans-serif;
+  font-size: 1.2rem;
   text-decoration: none;
   padding-bottom: 0.15rem;
   border-radius: 5px;
@@ -93,6 +94,7 @@ button span:hover{
   justify-content: space-between;
   margin: 1rem 2rem;
 }
+/* trash-icon */
 ion-icon {
   text-align: center;
   padding: 5 0;
@@ -105,12 +107,18 @@ ion-icon {
   color: var(--blue);
 }
 
+/* empty-list */
+.emptyList{
+  margin-top: 1rem;
+}
+
 /* checkbox */
 #checklist {
   position: relative;
   display: grid;
   grid-template-columns: 30px auto;
   align-items: center;
+  font-size: 1.3rem;
 }
 #checklist label {
   color: var(--text);
@@ -126,10 +134,11 @@ ion-icon {
   position: absolute;
 }
 #checklist label::before {
-  height: 2px;
-  width: 8px;
   left: -27px;
-  background: var(--blue);
+  height: 10px;
+  width: 10px;
+  background: var(--white);
+  border: solid 2px var(--blue);
   border-radius: 2px;
   transition: background 0.3s ease;
 }
@@ -198,13 +207,16 @@ ion-icon {
 }
 @keyframes slice {
   60% {
+    height: 4px;
     width: 100%;
     left: 4px;
   }
   100% {
+    height: 2px;
     width: 100%;
     left: -2px;
     padding-left: 0;
+    border: none;
   }
 }
 @keyframes check-01 {
@@ -252,13 +264,28 @@ ion-icon {
   }
 }
 
-.emptyList{
-  margin-top: 1rem;
-}
-
+/* media query */
 @media only screen and (max-width: 600px) {
   html{
     font-size: 90%;
+  }
+  .heading h1{
+    font-size: 2rem;
+  }
+  .form input{
+    font-size: 1.5rem;
+  }
+  button{
+    font-size: 1.5rem;
+  }
+  #checklist{
+    font-size: 1.5rem;
+  }
+  .trash-icon{
+    font-size: 1.5rem;
+  }
+  .emptyList{
+    font-size: 1.5rem;
   }
 }
 @media only screen and (max-width: 560px) {
@@ -269,6 +296,24 @@ ion-icon {
 @media only screen and (max-width: 500px) {
   html{
     font-size: 80%;
+  }
+  .heading h1{
+    font-size: 2.2rem;
+  }
+  .form input{
+    font-size: 1.6rem;
+  }
+  button{
+    font-size: 1.6rem;
+  }
+  #checklist{
+    font-size: 1.6rem;
+  }
+  .trash-icon{
+    font-size: 1.6rem;
+  }
+  .emptyList{
+    font-size: 1.6rem;
   }
 }
 @media only screen and (max-width: 460px) {
@@ -285,19 +330,50 @@ ion-icon {
   html{
     font-size: 65%;
   }
+  .heading h1{
+    font-size: 2.2rem;
+  }
+  .form input{
+    font-size: 1.7rem;
+  }
+  button{
+    font-size: 1.7rem;
+  }
+  #checklist{
+    font-size: 1.8rem;
+  }
+  .trash-icon{
+    font-size: 1.8rem;
+  }
+  .emptyList{
+    font-size: 1.8rem;
+  }
 }
 @media only screen and (max-width: 360px) {
   html{
     font-size: 60%;
   }
+  .heading h1{
+    font-size: 2.4rem;
+  }
+  .form input{
+    font-size: 1.8rem;
+  }
+  button{
+    font-size: 1.8rem;
+  }
+  #checklist{
+    font-size: 1.9rem;
+  }
+  .trash-icon{
+    font-size: 2rem;
+  }
+  .emptyList{
+    font-size: 1.9rem;
+  }
 }
 @media only screen and (max-width: 320px) {
   html{
     font-size: 50%;
-  }
-}
-@media only screen and (max-width: 280px) {
-  html{
-    font-size: 40%;
   }
 }
