@@ -23,7 +23,6 @@ function AddArea(props) {
         onChange={handleInput}
         value={newTodo}
         autoComplete="off"
-        autoFocus
       />
       <button type={"submit"}>
         <span>Add</span>
