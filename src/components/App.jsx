@@ -6,7 +6,7 @@ import EmptyList from "./EmptyList";
 
 function App() {
   const items = JSON.parse(localStorage.getItem('todoItems'));
-  const [todoList, setTodoList] = useState(items);
+  const [todoList, setTodoList] = useState(items || []);
 
   function setItemsAndSetLocalStorage(newList){
     setTodoList(newList);
@@ -16,8 +16,8 @@ function App() {
   function handleAdd(newTodo) {
     if(!newTodo) return;
 
-    const newId = (todoList && todoList.length) ? todoList[todoList.length - 1].id + 1 : 1;
-    const newToDoList = todoList ? [...todoList, {id: newId, isDone: false, item: newTodo}] : [{id: newId, isDone: false, item: newTodo}];
+    const newId = (todoList.length) ? todoList[todoList.length - 1].id + 1 : 1;
+    const newToDoList = [...todoList, {id: newId, isDone: false, item: newTodo}];
 
     setItemsAndSetLocalStorage(newToDoList);
   }
